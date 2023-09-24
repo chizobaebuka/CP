@@ -9,11 +9,11 @@ const DashboardLayout = () => {
         //     <Navbar />
         // </div>
 
-        <div className="flex flex-row w-screen h-screen overflow-hidden ">
+        <div className="flex">
             <div className="">
                 <Sidebar />
             </div>
-            <div className="flex flex-col w-full bg-indigo-50">
+            <div className="flex flex-col w-full px-8 overflow-y-auto bg-indigo-50">
                 <Navbar />
                 <Hero />
             </div>

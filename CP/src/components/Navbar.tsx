@@ -1,50 +1,77 @@
-import down from "../assets/Caret_Down_MD.png"
-import tag from "../assets/tag.png"
-import userx from "../assets/User_Close.png"
-import good from "../assets/User_Check.png"
-import voice from "../assets/User_Voice.png"
-const Navbar = () => {
-    return (
-        <div className="flex flex-row h-14">
-            <div className="mt-8 mx-8 gap-8 w-[385px]">
-                <h1 className="text-xl font-semibold text-[#1D4ED8] mb-2 ">London Internship Program</h1>
-                <p className="text-xs font-light text-start">London</p>
-            </div>
-            <div className="mt-8 mx-8 gap-16 w-[321px]  ">
-                <div className="flex bg-white gap-20 rounded-2xl h-10 items-center mb-2">
-                    <div className="px-4">
-                        <p className="text-[#1D4ED8] text-base font-medium ">Opportunity Browsing</p>
-                    </div>
-                    <img src={down} alt="" />
-                </div>
-            </div>
-            <div className="flex flex-row gap-2">
-                <div className="mt-8 bg-[#FFFFFF] w-10 h-10 ">
-                    <img src={tag} alt="" className="items-center justify-center p-2" />
-                </div>
-                <div className="mt-8 bg-[#FFFFFF] w-10 h-10 ">
-                    <img src={userx} alt="" className="items-center justify-center p-2" />
-                </div>
-                <div className="mt-8 bg-[#FFFFFF] w-10 h-10 ">
-                    <img src={good} alt="" className="items-center justify-center p-2" />
-                </div>
-                <div className="mt-8 bg-[#FFFFFF] w-10 h-10 ">
-                    <img src={voice} alt="" className="items-center justify-center p-2" />
-                </div>
-                <div className="mt-8 bg-[#FFFFFF] w-10 h-10 gap-4">
-                    <img src={tag} alt="" className="items-center justify-center p-2" />
-                </div>
-                <div className="flex flex-row ">
-                    <div className="bg-[#1D5DCD] h-10 mt-8">
-                        <p className="text-[white] text-base font-normal px-4 py-2 text-center justify-center ">Move to Video Interview</p>
-                    </div>
-                    <div className="w-[34px] h-10 px-2 py-3 bg-[#1D5DCD] rounded-tr-lg mt-8 rounded-br-lg justify-start items-center gap-2.5 inline-flex">
-                        <img src={down} className="w-4 h-4 relative" style={{ filter: 'brightness(0) invert(1) brightness(100%)' }} />
-                    </div>
+import down from "../assets/Caret_Down_MD.png";
+import tag from "../assets/tag.png";
+import user from "../assets/User_Close.png";
+import good from "../assets/User_Check.png";
+import voice from "../assets/User_Voice.png";
+import mail from "../assets/Mail.png"
+import { useState } from "react";
+import DropDown from "./DropDown";
 
+
+const Navbar = () => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleDropdownToggle = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    return (
+        <div className="h-14 justify-start items-start gap-8 inline-flex py-6 mb-12">
+            <div className="w-[385px] flex-col justify-start items-start gap-2 inline-flex">
+                <div className="text-blue-700 text-xl font-semibold font-['Poppins']">
+                    London Internship Program
+                </div>
+                <div className="text-neutral-950 text-xs font-light font-['Poppins']">
+                    London
+                </div>
+            </div>
+            <div className="grow shrink basis-0 self-stretch justify-between items-start flex">
+                <div className="w-[321px] h-10 px-4 py-2 bg-white rounded-t-2xl shadow justify-between items-center flex">
+                    <div className="justify-start items-center gap-2 flex">
+                        <div className="text-[#1D4ED8] text-base font-medium font-['Poppins'] leading-snug">
+                            Opportunity Browsing
+                        </div>
+                    </div>
+                    <div className="w-6 h-6 relative" />
+                    <img src={down} alt="" width="auto" onClick={handleDropdownToggle} className="cursor-pointer" />
+                </div>
+                {isDropdownOpen && (
+                    <DropDown />
+                )}
+                <div className="rounded-2xl justify-center items-center gap-2 flex">
+                    <div className="p-2 bg-white rounded-lg shadow border border-gray-200 justify-center items-center gap-2.5 flex">
+                        <div className="w-6 h-6 relative">
+                            <div className="w-[15.83px] h-[15.82px] left-[4.08px] top-[4.72px] absolute">
+                                <img src={tag} alt="" className="w-24" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="p-2 bg-white rounded-lg shadow border border-gray-200 justify-center items-center gap-2.5 flex">
+                        <img src={user} alt="" />
+                    </div>
+                    <div className="p-2 bg-white rounded-lg shadow border border-gray-200 justify-center items-center gap-2.5 flex">
+                        <img src={good} alt="" />
+                    </div>
+                    <div className="w-10 h-10 p-2 bg-white rounded-lg shadow border border-gray-200 justify-center items-center gap-2.5 flex">
+                        <img src={voice} alt="" />
+                    </div>
+                    <div className="w-10 h-10 p-2 bg-white rounded-lg shadow border border-gray-200 justify-center items-center gap-2.5 flex">
+                        <img src={mail} alt="" />
+                    </div>
+                    <div className="w-[230px] self-stretch rounded-lg justify-start items-center flex">
+                        <div className="w-[195px] self-stretch px-4 py-2 bg-blue-700 rounded-tl-lg rounded-bl-lg justify-start items-center gap-2.5 flex">
+                            <div className="text-white text-[13px] font-normal font-['Poppins'] leading-snug">
+                                Move To Video Interview I
+                            </div>
+                        </div>
+                        <div className="w-px h-10 relative bg-white" />
+                        <div className="w-[34px] self-stretch px-2.5 py-3 bg-blue-700 rounded-tr-lg rounded-br-lg justify-start items-center gap-2.5 flex">
+                            <div className="w-4 h-4 relative" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    )
-}
-export default Navbar
+    );
+};
+export default Navbar;

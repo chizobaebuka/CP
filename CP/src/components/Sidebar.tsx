@@ -12,7 +12,7 @@ import as from "../assets/AS.png"
 
 const Sidebar = () => {
     return (
-        <div className="flex flex-col w-[72px] h-screen ">
+        <div className="flex flex-col w-[72px] sticky top-0 h-screen ">
             <div className="flex flex-col justify-between">
                 <div className="flex flex-col h-[632px]">
                     <div className="mt-4 px-3 mb-6">
