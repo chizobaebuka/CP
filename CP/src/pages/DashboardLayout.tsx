@@ -1,3 +1,4 @@
+import Hero from "../components/Hero"
 import Navbar from "../components/Navbar"
 import Sidebar from "../components/Sidebar"
 
@@ -14,6 +15,7 @@ const DashboardLayout = () => {
             </div>
             <div className="flex flex-col w-full bg-indigo-50">
                 <Navbar />
+                <Hero />
             </div>
         </div>
     )
